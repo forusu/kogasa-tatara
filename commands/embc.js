@@ -1,7 +1,7 @@
 exports.run = (client, message, args) => {
 
 
-    let say = args;
+    let say = args.join(" ");
 
     message.channel.send({embed: {
         "color": 6894771,

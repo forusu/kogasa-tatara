@@ -1,6 +1,16 @@
 exports.run = (client, message, user, args) => {
 
-    let imageurl = message.author.avatarURL
+    let imageurl
+
+    if (args == 0) {
+        imageurl = message.author.avatarURL
+    } else if (message.mentions.users.first()) {
+        imageurl = message.mentions.avatarURL
+    } else if (message.mentions.users.first() && args[1]) {
+        message.channel.send("☂ You can only request an avatar from one user!")
+        message.react('❌')
+    }
+    
     message.react('☂')
 
     message.channel.send({embed: {
@@ -12,7 +22,7 @@ exports.run = (client, message, user, args) => {
         "timestamp": Date.now(),
         "footer": {
             text: "Boo's with ❤︎ from Mia"
-        }}});
+    }}});
 
 }
 
