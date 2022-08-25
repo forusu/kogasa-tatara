@@ -6,7 +6,6 @@ exports.run = (client, message, user, args) => {
     message.channel.send({embed: {
         "color": 6894771, 
         "title": "☂ Here's your avatar!",
-        "description" : description,
         "image": {
             url: imageurl,
         },
