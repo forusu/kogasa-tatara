@@ -1,6 +1,6 @@
 exports.run = (client, message, user, args) => {
 
-    let imageurl = message.author.avatar
+    let imageurl = message.author.avatarURL
     message.react('☂')
 
     message.channel.send({embed: {
