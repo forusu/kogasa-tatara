@@ -1,0 +1,29 @@
+{
+  "name": "kogasa-tatara",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "better-sqlite3": "^7.0.1",
+    "discord.js": "^11.6.4",
+    "enmap": "^5.2.4",
+    "moment": "^2.25.3",
+    "moment-duration-format": "^2.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forusu/kogasa-tatara.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/forusu/kogasa-tatara/issues"
+  },
+  "homepage": "https://github.com/forusu/kogasa-tatara#readme"
+}
