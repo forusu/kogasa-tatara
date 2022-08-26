@@ -20,7 +20,7 @@ const config = {
 
     { 
       level: 10,
-      name: "Owner", 
+      name: "finesse", 
 
       check: (message) => message.client.config.ownerid === message.author.id 
     //   || message.client.config.ownerid2 === message.author.id  
