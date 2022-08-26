@@ -18,6 +18,7 @@ client.config = config;
       console.log(`☂ Ready to spread terror and fear on ${client.users.size} members from ${client.guilds.size} servers!`);  
     }
 
+    client.user.setStatus("dnd");
     client.user.setPresence({
       game: {
           name: "with humans!",
@@ -25,7 +26,25 @@ client.config = config;
       }
     });
 
-    client.user.setStatus("dnd");
+    // talk events
+  client.on('message', message => {
+    switch (message.content.toLowerCase()) {
+      case "cirno": 
+        message.channel.send("☂ gremlin..")
+        break;
+      case "kogasa":
+        message.channel.send("☂ the karakasa obake?")
+        break;
+      case "reimu":
+        message.channel.send("☂ she's scarier than me...")
+        break;
+      case "utsuho":
+        message.channel.send("☂ bird brain")
+        break;
+    }
+
+  })
+
   });
 
   //Preventing errors and warnings from crashing the bot
