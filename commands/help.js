@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+exports.run = (client, message) => {
 
     let description = "\`\`\`asciidoc\n";
     description += "Base commands: \n";
@@ -31,8 +31,7 @@ exports.run = (client, message, args) => {
         "footer": {
             text: "Boo's with ❤︎ from Mia"
         }
-        
-      
+          
     }});
 }
 

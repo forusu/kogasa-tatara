@@ -19,6 +19,8 @@ module.exports = (client, message) => {
         return message.channel.send(`☂ This command does not exist, please refer to ->help for a concise list!`)
     };
 
+
+    // TODO: FIX ONE DAY
     if (message.content.indexOf(client.config.prefix) === 0) {
               // command cooldown
               if (talkedRecently.has(message.author.id) && (message.client.config.miaID)) {

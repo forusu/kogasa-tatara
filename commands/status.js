@@ -1,10 +1,8 @@
+const { version } = require("discord.js");
+const moment = require("moment");
+require("moment-duration-format");
 
-
-    const { version } = require("discord.js");
-    const moment = require("moment");
-    require("moment-duration-format");
-
-exports.run = (client, message, args, level) => { // eslint-disable-line no-unused-vars
+exports.run = (client, message) => { // eslint-disable-line no-unused-vars
     const dur = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
     const mem = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)
    // const memfr = 
@@ -22,9 +20,6 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
     description += ">     Channels :: " + chn + "\n";
     description += ">   Discord.js :: " + "v" + ver + "\n";
     description += "\`\`\`";
-
-
-
 
     message.channel.send({embed: {
         "color": 6894771, 

@@ -13,7 +13,6 @@ exports.run = (client, message) => {
             }
         }});
 
-
 }
 
 exports.conf = {
