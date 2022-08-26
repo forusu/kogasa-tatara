@@ -1,17 +1,16 @@
-exports.run = (client, message, user, args) => {
+exports.run = (client, message, args, user) => {
 
     let imageurl
+    const mention = message.mentions.users.first();
 
-    if (args == 0) {
+    if (!mention) {
         imageurl = message.author.avatarURL
-    } else if (message.mentions.users.first()) {
-        imageurl = message.mentions.avatarURL
-    } else if (message.mentions.users.first() && args[1]) {
-        message.channel.send("☂ You can only request an avatar from one user!")
+    } else if (mention && args[1]) {
         message.react('❌')
+        return message.channel.send("☂ You can only request an avatar from one user!")
+    } else if (mention) {
+        imageurl = mention.avatarURL
     }
-    
-    message.react('☂')
 
     message.channel.send({embed: {
         "color": 6894771, 
@@ -23,6 +22,8 @@ exports.run = (client, message, user, args) => {
         "footer": {
             text: "Boo's with ❤︎ from Mia"
     }}});
+    
+    message.react('☂')
 
 }
 
