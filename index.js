@@ -11,6 +11,7 @@ client.config = config;
 
   //On ready event handler, does stuff on the ready event!!!!!!
   client.on("ready", () => {
+    console.log("☂ initialisation complete!")
 
     if (client.guilds.size < 2) {
       console.log(`☂ Ready to spread terror and fear on ${client.users.size} members of a single server!`);
