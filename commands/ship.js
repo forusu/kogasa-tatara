@@ -5,27 +5,29 @@ exports.run = (client, message, args) => {
 
     if (!user) {
 
-            let description = "\`\`\`asciidoc\n";
-            description += "Usage: \n"
-            description += "cc!ship + [mention] \n\n"
-            description += "> description :: Ships users\n"
-            description += "\`\`\`"
-        
-            message.channel.send({embed: {
-                    "color": 15959241, 
-                    "title": "☂ Command help",
-                    "description" : description,
-                    "timestamp": Date.now(),
-                    "footer": {
-                        text: "Boo's with ❤︎ from Mia"
-                    }}});
+        let description = "\`\`\`asciidoc\n";
+        description += "Usage: \n"
+        description += "cc!ship + [mention] \n\n"
+        description += "> description :: Ships users\n"
+        description += "\`\`\`"
+
+        message.channel.send({embed: {
+                "color": 15959241, 
+                "title": "☂ Command help",
+                "description" : description,
+                "timestamp": Date.now(),
+                "footer": {
+                    text: "Boo's with ❤︎ from Mia"
+                }}});
 
     } else if (message.mentions.users.first() && args[1]) {
         message.channel.send("☂ You can only ship one person dummy!")
         message.react('❌')
+
     } else if (user === author) {
         message.channel.send("☂ You can't ship yourself dummy!")
         message.react('❌')
+        
     } else if (percent < 10) {
         message.channel.send({embed: {
             "color": 6894771, 
