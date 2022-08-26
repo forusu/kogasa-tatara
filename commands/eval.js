@@ -9,7 +9,7 @@ exports.run = async (client, message, args, user, level) => {
 
     // logging for security
     let guild = message.guild
-      if (guild === null) {
+      if (channel.type === ChannelType.DM) {
         guild = "DMs"
       }
 

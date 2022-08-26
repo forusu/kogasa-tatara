@@ -1,16 +1,27 @@
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
-const client = new Discord.Client();
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+  intents: [
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildVoiceStates
+  ]
+});
 const config = require("./config.js");
 client.logger = require("./modules/Logger");
 require("./modules/functions.js")(client);
-const talkedRecently = new Set();
+
+
+
 client.config = config;
 
 
   //On ready event handler, does stuff on the ready event!!!!!!
   client.on("ready", () => {
+
+
+
     console.log("☂ initialisation complete!")
 
     if (client.guilds.size < 2) {
