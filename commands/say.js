@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
     
         message.channel.send({embed: {
                 "color": 16720165, 
-                "title": "Command help",
+                "title": "☂ Command help",
                 "description" : description,
                 "timestamp": Date.now(),
                 "footer": {

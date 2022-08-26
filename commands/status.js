@@ -28,7 +28,7 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
 
     message.channel.send({embed: {
         "color": 6894771, 
-        "title": "My statistics!",
+        "title": "☂ My statistics!",
         "description" : description,
         "timestamp": Date.now(),
         "footer": {

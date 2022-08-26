@@ -5,7 +5,6 @@ const client = new Discord.Client();
 const config = require("./config.js");
 client.logger = require("./modules/Logger");
 require("./modules/functions.js")(client);
-const talkedRecently = new Set();
 client.config = config;
 
 

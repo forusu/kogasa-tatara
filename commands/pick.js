@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
     
         message.channel.send({embed: {
                 "color": 6894771, 
-                "title": "Command help",
+                "title": "☂ Command help",
                 "description" : description,
                 "timestamp": Date.now(),
                 "footer": {
@@ -22,13 +22,13 @@ exports.run = (client, message, args) => {
                 }}});
     } else if (args[3]) {
         message.react('❌')
-        message.channel.send("I can only pick between 3 things NotLikeThis")
+        message.channel.send("☂ I can only pick between 3 things NotLikeThis")
     } else if (args[2]) {
 
         if (choice <= 3) {
             message.channel.send({embed: {
                 "color": 6894771,
-                "title": "Choice",
+                "title": "☂ Here's my choice!",
                 "description" : `\`\`\`${choice1}\`\`\``,
                 "timestamp": Date.now(),
                 "footer": {
@@ -39,7 +39,7 @@ exports.run = (client, message, args) => {
         } else if (choice > 3 && choice <= 6) {
             message.channel.send({embed: {
                 "color": 6894771, 
-                "title": "Choice",
+                "title": "☂ My choice is",
                 "description" : `\`\`\`${choice2}\`\`\``,
                 "timestamp": Date.now(),
                 "footer": {
@@ -49,7 +49,7 @@ exports.run = (client, message, args) => {
         } else if (choice > 6 && choice <= 10){ 
             message.channel.send({embed: {
                 "color": 6894771, 
-                "title": "Choice",
+                "title": "☂ I chose",
                 "description" : `\`\`\`${choice3}\`\`\``,
                 "timestamp": Date.now(),
                 "footer": {
@@ -60,7 +60,7 @@ exports.run = (client, message, args) => {
     } else if (choice <= 5) {
         message.channel.send({embed: {
             "color": 6894771, 
-            "title": "Choice",
+            "title": "☂ I choose",
             "description" : `\`\`\`${choice1}\`\`\``,
             "timestamp": Date.now(),
             "footer": {
@@ -70,7 +70,7 @@ exports.run = (client, message, args) => {
     } else if (choice > 5) {
         message.channel.send({embed: {
             "color": 6894771, 
-            "title": "Choice",
+            "title": "☂ Choices, choices...",
             "description" : `\`\`\`${choice2}\`\`\``,
             "timestamp": Date.now(),
             "footer": {

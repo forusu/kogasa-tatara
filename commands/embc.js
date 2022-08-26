@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
 
     message.channel.send({embed: {
         "color": 6894771,
-        "title": "Command list",
+        "title": "☂ Here is your embed!",
         "description": say,
         "timestamp": Date.now(),
         "footer": {

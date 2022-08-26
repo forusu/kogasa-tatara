@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
     
         message.channel.send({embed: {
                 "color": 6894771, 
-                "title": "Booooo! Did that surprise you? — Kogasa Tatara ",
+                "title": "☂ Booooo! Did that surprise you? — Kogasa Tatara ",
                 "description" : description,
                 "image": {
                     url: imageurl,

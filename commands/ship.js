@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
         
             message.channel.send({embed: {
                     "color": 15959241, 
-                    "title": "Command help",
+                    "title": "☂ Command help",
                     "description" : description,
                     "timestamp": Date.now(),
                     "footer": {
@@ -21,10 +21,10 @@ exports.run = (client, message, args) => {
                     }}});
 
     } else if (message.mentions.users.first() && args[1]) {
-        message.channel.send("You can only ship one person dummy!")
+        message.channel.send("☂ You can only ship one person dummy!")
         message.react('❌')
     } else if (user === author) {
-        message.channel.send("You can't ship yourself dummy!")
+        message.channel.send("☂ You can't ship yourself dummy!")
         message.react('❌')
     } else if (percent < 10) {
         message.channel.send({embed: {

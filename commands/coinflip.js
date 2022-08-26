@@ -5,7 +5,7 @@ exports.run = (client, message) => {
     if (hot < 5) {
         message.channel.send({embed: {
             "color": 6894771, 
-            "title": "Coinflip",
+            "title": "☂ I flipped the coin!",
             "description" : `\`\`\`Heads!\`\`\``,
             "timestamp": Date.now(),
             "footer": {
@@ -15,7 +15,7 @@ exports.run = (client, message) => {
     } else {
         message.channel.send({embed: {
             "color": 6894771, 
-            "title": "Coinflip",
+            "title": "☂ Here's the result!",
             "description" : `\`\`\`Tails!\`\`\``,
             "timestamp": Date.now(),
             "footer": {
