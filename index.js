@@ -32,12 +32,6 @@ client.config = config;
       case "cirno": 
         message.channel.send("☂ gremlin..")
         break;
-      case "kogasa":
-        message.channel.send("☂ the karakasa obake?")
-        break;
-      case "reimu":
-        message.channel.send("☂ she's scarier than me...")
-        break;
       case "utsuho":
         message.channel.send("☂ bird brain")
         break;
