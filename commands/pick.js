@@ -10,12 +10,17 @@ exports.run = (client, message, args) => {
 
     picker = () => {
 
-        return choice <= 3 ? desc = `\`\`\`${choice1}\`\`\``
+        args.length == 3 ?
+  
+            choice <= 3 ? desc = `\`\`\`${choice1}\`\`\``
             : choice > 3 && choice <= 6 ? desc = `\`\`\`${choice2}\`\`\``
-            : choice > 6 && choice <= 10 ? desc = `\`\`\`${choice3}\`\`\``
-            : choice <= 5 ? desc = `\`\`\`${choice1}\`\`\``
+            : desc = `\`\`\`${choice3}\`\`\``
+
+        :
+            choice <= 5 ? desc = `\`\`\`${choice1}\`\`\``
             : desc = `\`\`\`${choice2}\`\`\``
 
+        return desc
     }
 
     if (args.length == 0) { 
@@ -27,13 +32,17 @@ exports.run = (client, message, args) => {
         description += "\`\`\`"
 
         title = "☂ Command help"
+    }
 
-    } else if (args[3]) {
+    if (args.length > 3) {
 
         message.react('❌')
         message.channel.send("☂ I can only pick between 3 things NotLikeThis")
 
-    } else if (args[2]) {
+        return
+    }
+
+    if (args.length >= 2) {
 
         title = "☂ Here's my choice!"
         description = picker()

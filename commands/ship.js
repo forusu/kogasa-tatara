@@ -77,7 +77,7 @@ const computeMatchEmbedOverrides = (percent) => {
 
     if (percent > 60) {
         return {
-            title: `<:blue_heart:>`,
+            title: `:blue_heart:`,
             description: `\`\`\`${percent}% || You look great together!\`\`\``
         }
     }
