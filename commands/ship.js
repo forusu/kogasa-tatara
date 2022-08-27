@@ -1,88 +1,109 @@
 exports.run = async (client, message, args) => {
-
-    const author = message.author;
     const user = message.mentions.users.first();
-    const percent = Math.round(Math.random()*101);
-    let description
+
+    const embed = {
+        color: 6894771,
+        title: "",
+        description: "",
+        timestamp: Date.now(),
+        footer: {
+            text: "Boo's with ❤︎ from Mia"
+        }
+    }
 
     if (!user) {
+        embed.description = "\`\`\`asciidoc\n";
+        embed.description += "Usage: \n"
+        embed.description += "->ship + [mention] \n\n"
+        embed.description += "> description :: Ships users\n"
+        embed.description += "\`\`\`"
 
-        description = "\`\`\`asciidoc\n";
-        description += "Usage: \n"
-        description += "->ship + [mention] \n\n"
-        description += "> description :: Ships users\n"
-        description += "\`\`\`"
+        embed.title = "☂ Command help"
+        return message.channel.send({ embed })
+    }
 
-        title = "☂ Command help"
-
-
-    } else if (message.mentions.users.first() && args[1]) {
+    if (args.length > 1) {
 
         message.channel.send("☂ You can only ship one person dummy!")
         message.react('❌')
-        return
 
-    } else if (user === author) {
+        return
+    }
+
+    if (user === message.author) {
 
         message.channel.send("☂ You can't ship yourself dummy!")
         message.react('❌')
+
         return
+    }
 
-    } else if (percent < 10) {
+    const percent = Math.round(Math.random() * 101);
+    const matchEmbedOverrides = computeMatchEmbedOverrides(percent)
 
-            title = `:broken_heart:`
-            description = `\`\`\`${percent}% || are you even friends?\`\`\``
+    // spread copies params of embed object in new object, then copies match... into the object, overriding any parameters with the same name
+    return message.channel.send({ embed: {...embed, ...matchEmbedOverrides} }) 
+}
 
-    } else if (percent > 10 && percent < 30) {
+const computeMatchEmbedOverrides = (percent) => {
+    if (percent === 100) {
 
-            title = `:broken_heart:`
-            description = `\`\`\`${percent}% || Friendzone...\`\`\``
+        return {
+            title: `:sparkling_heart:`,
+            description: `\`\`\`${percent}% || PERFECT LOVE!!!\`\`\``
+        }
+    }
 
-    } else if (percent > 30 && percent < 60) {
+    if (percent > 90) {
+        return {
+            title: `:heartpulse:`,
+            description: `\`\`\`${percent}% || Kiss kiss kiss! Marry each other already!!\`\`\``
+        }
+    }
 
-            title = `:heart:`
-            description = `\`\`\`${percent}% || Maybe there's something between you!\`\`\``
+    if (percent > 80) {
+        return {
+            title: `:heart_decoration:`,
+            description: `\`\`\`${percent}% || Invite me to your wedding!!\`\`\``
+        }
+    }
 
-    } else if (percent > 60 && percent < 70) {
+    if (percent > 70) {
+        return {
+            title: `:yellow_heart:`,
+            description: `\`\`\`${percent}% || Whew, this is getting quite hot!\`\`\``
+        }
+    }
 
-            title = `"<:heart_blue:691969903661416470>`
-            description = `\`\`\`${percent}% || You look great together!\`\`\``
+    if (percent > 60) {
+        return {
+            title: `<:heart_blue:691969903661416470>`,
+            description: `\`\`\`${percent}% || You look great together!\`\`\``
+        }
+    }
 
-    } else if (percent > 70 && percent < 80) {
+    if (percent > 30) {
+        return {
+            title: `:heart:`,
+            description: `\`\`\`${percent}% || Maybe there's something between you!\`\`\``
+        }
+    }
 
-            title = `:yellow_heart:`
-            description = `\`\`\`${percent}% || Whew, this is getting quite hot!\`\`\``
-
-    } else if (percent > 80 && percent < 90) {
-
-            title = `:heart_decoration:`
-            description = `\`\`\`${percent}% || Invite me to your wedding!!\`\`\``
-
-    } else if (percent > 90 && percent < 99) {
-
-            title = `:heartpulse:`
-            description = `\`\`\`${percent}% || Kiss kiss kiss! Marry each other already!!\`\`\``
-
-    } else if (percent === 100) {
-
-            title = `:sparkling_heart:`
-            description = `\`\`\`${percent}% || PERFECT LOVE!!!\`\`\``
+    if (percent > 10) {
+        return {
+            title: `:broken_heart:`,
+            description: `\`\`\`${percent}% || Friendzone...\`\`\``
+        }
 
     }
 
-    await message.channel.send({embed: {
-        "color": 6894771, 
-        "title": title,
-        "description" : description,
-        "timestamp": Date.now(),
-        "footer": {
-            text: "Boo's with ❤︎ from Mia"
-        }
-    }})
+    return {
+        title: `:broken_heart:`,
+        description: `\`\`\`${percent}% || are you even friends?\`\`\``
+    }
 
 }
 
 exports.conf = {
     permLevel: "User"
 }
-
