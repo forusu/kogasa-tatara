@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
 
         message.channel.send("☂ You can only ship one person dummy!")
         message.react('❌')
-
+        
         return
     }
 
@@ -40,7 +40,7 @@ exports.run = async (client, message, args) => {
 
     const percent = Math.round(Math.random() * 101);
     const matchEmbedOverrides = computeMatchEmbedOverrides(percent)
-
+    
     // spread copies params of embed object in new object, then copies match... into the object, overriding any parameters with the same name
     return message.channel.send({ embed: {...embed, ...matchEmbedOverrides} }) 
 }
@@ -77,7 +77,7 @@ const computeMatchEmbedOverrides = (percent) => {
 
     if (percent > 60) {
         return {
-            title: `<:heart_blue:691969903661416470>`,
+            title: `"<:heart_blue:691969903661416470>`,
             description: `\`\`\`${percent}% || You look great together!\`\`\``
         }
     }
