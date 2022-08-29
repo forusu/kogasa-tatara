@@ -1,6 +1,4 @@
-
-
-    const { version } = require("discord.js");
+    const { version, EmbedBuilder } = require("discord.js");
     const moment = require("moment");
     require("moment-duration-format");
 
@@ -8,9 +6,9 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
     const dur = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
     const mem = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)
    // const memfr = 
-    const usr = client.users.size.toLocaleString()
-    const ser = client.guilds.size.toLocaleString()
-    const chn = client.channels.size.toLocaleString()
+    const usr = client.users.cache.size
+    const ser = client.guilds.cache.size
+    const chn = client.channels.cache.size
     const ver = version
 
     let description = "\`\`\`asciidoc\n";
@@ -24,17 +22,14 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
     description += "\`\`\`";
 
 
+    const status = new EmbedBuilder()
+	.setColor(6894771)
+	.setTitle('My statistics!')
+	.setDescription(description)
+	.setTimestamp()
+	.setFooter({ text: "Boo's with ❤︎ from Mia"});
 
-
-    message.channel.send({embed: {
-        "color": 6894771, 
-        "title": "My statistics!",
-        "description" : description,
-        "timestamp": Date.now(),
-        "footer": {
-            text: "Boo's with ❤︎ from Mia"
-        }
-    }});
+   message.channel.send({ embeds: [status] });
 }
 
 exports.conf = {

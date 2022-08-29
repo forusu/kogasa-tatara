@@ -1,11 +1,13 @@
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const client = new Client({
   intents: [
       GatewayIntentBits.Guilds,
-      GatewayIntentBits.GuildVoiceStates
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.GuildVoiceStates,
+      GatewayIntentBits.MessageContent
   ]
 });
 const config = require("./config.js");
@@ -15,7 +17,7 @@ require("./modules/functions.js")(client);
 
 
 client.config = config;
-
+client.EmbedBuilder = EmbedBuilder;
 
   //On ready event handler, does stuff on the ready event!!!!!!
   client.on("ready", () => {
