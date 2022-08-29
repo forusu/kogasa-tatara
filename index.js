@@ -13,9 +13,7 @@ const client = new Client({
 const config = require("./config.js");
 client.logger = require("./modules/Logger");
 require("./modules/functions.js")(client);
-
-
-
+const talkedRecently = new Set();
 client.config = config;
 client.EmbedBuilder = EmbedBuilder;
 
@@ -32,6 +30,7 @@ client.EmbedBuilder = EmbedBuilder;
       console.log(`☂ Ready to spread terror and fear on ${client.users.cache.size} members from ${client.guilds.cache.size} servers!`);  
     }
 
+    client.user.setStatus("dnd");
     client.user.setPresence({
       game: {
           name: "with humans!",
@@ -39,7 +38,19 @@ client.EmbedBuilder = EmbedBuilder;
       }
     });
 
-    client.user.setStatus("dnd");
+    // talk events
+  client.on('message', message => {
+    switch (message.content.toLowerCase()) {
+      case "cirno": 
+        message.channel.send("☂ gremlin..")
+        break;
+      case "utsuho":
+        message.channel.send("☂ bird brain")
+        break;
+    }
+
+  })
+
   });
 
   //Preventing errors and warnings from crashing the bot

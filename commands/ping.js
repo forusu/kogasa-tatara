@@ -1,4 +1,4 @@
-exports.run = async (client, message, args) => {
+exports.run = async (client, message) => {
 
     let init = Date.now()
     let msg = await message.channel.send("/");
