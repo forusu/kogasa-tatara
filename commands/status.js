@@ -1,5 +1,5 @@
 
-    const { version, EmbedBuilder } = require("discord.js");
+    const { version } = require("discord.js");
     const moment = require("moment");
     require("moment-duration-format");
 
@@ -24,15 +24,16 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
     description += "\`\`\`";
 
 
-
-    const status = new EmbedBuilder()
-	.setColor(6894771)
-	.setTitle('My statistics!')
-	.setDescription(description)
-	.setTimestamp()
-	.setFooter({ text: "Boo's with ❤︎ from Mia"});
-
-   message.channel.send({ embeds: [status] });
+    const status ={
+        color: 6894771, 
+        title: "☂ My statistics!",
+        description : description,
+        timestamp: new Date().toISOString(),
+        footer: {
+            text: "Boo's with ❤︎ from Mia"
+        }
+    };
+    message.channel.send({ embeds: [status]});
 
     }
 exports.conf = {
