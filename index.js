@@ -15,7 +15,6 @@ client.logger = require("./modules/Logger");
 require("./modules/functions.js")(client);
 const talkedRecently = new Set();
 client.config = config;
-client.EmbedBuilder = EmbedBuilder;
 
   //On ready event handler, does stuff on the ready event!!!!!!
   client.on("ready", () => {

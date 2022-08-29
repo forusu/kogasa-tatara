@@ -1,3 +1,4 @@
+const { EmbedBuilder } = require("discord.js");
 exports.run = (client, message) => {
 
     let description = "\`\`\`asciidoc\n";
@@ -23,16 +24,15 @@ exports.run = (client, message) => {
     description += ">    ->say :: Makes the bot talk\n";
     description += "\`\`\`"
 
-    message.channel.send({embed: {
-        "color": 6894771, /* 15959241 */
-        "title": "☂ List of my commands!",
-        "description": description,
-        "timestamp": Date.now(),
-        "footer": {
-            text: "Boo's with ❤︎ from Mia"
-        }
-          
-    }});
+    const help = new EmbedBuilder()
+	.setColor(6894771)
+	.setTitle('☂ List of my commands!')
+	.setDescription(description)
+	.setTimestamp()
+	.setFooter({ text: "Boo's with ❤︎ from Mia"});
+
+   message.channel.send({ embeds: [help] });
+
 }
 
 exports.conf = {
