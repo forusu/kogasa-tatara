@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
         color: 6894771,
         title: "☂ Here is your embed!",
         description: say,
-        timestamp: Date.now(),
+        timestamp: new Date().toISOString(),
         footer: {
             text: "Boo's with ❤︎ from Mia"
         }
