@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
-const { Client, GatewayIntentBits, userMention } = require('discord.js');
+const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({
   intents: [
       GatewayIntentBits.Guilds,
