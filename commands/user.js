@@ -37,17 +37,17 @@ exports.run = (client, message, args, user) => {
 
     }
 
-    message.channel.send({embed: {
-        "color": 6894771, 
+    const embed = {
+        color: 6894771, 
         // "title": "☂ Your user info!",
-        "author": {
+        author: {
             name: userTag,
             icon_url: imageurl
         },
-        "thumbnail": {
+        thumbnail: {
             url: imageurl,
         },
-        "fields": [{
+        fields: [{
             name: 'username',
 			value: uname,
         },
@@ -64,10 +64,11 @@ exports.run = (client, message, args, user) => {
             value: userJoinDate,
         }
         ],
-        "timestamp": Date.now(),
-        "footer": {
+        timestamp: new Date().toISOString(),
+        footer: {
             text: "Boo's with ❤︎ from Mia"
-    }}});
+    }};
+    return message.channel.send({ embeds: [embed]});
     
     message.react('☂')
 

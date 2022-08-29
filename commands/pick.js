@@ -49,13 +49,14 @@ exports.run = (client, message, args) => {
 
     }
 
-    message.channel.send({embed: {
-        "color": 6894771, 
-        "title": title,
-        "description" : description,
-        "timestamp": Date.now(),
-        "footer": { text: "Boo's with ❤︎ from Mia"}  
-    }}); 
+    const embed = {
+        color: 6894771, 
+        title: title,
+        description : description,
+        timestamp: new Date().toISOString(),
+        footer: { text: "Boo's with ❤︎ from Mia"}  
+    };
+    message.channel.send({ embeds: [embed]});
 
 }
 

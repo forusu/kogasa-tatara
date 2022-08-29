@@ -19,7 +19,7 @@ exports.run = async (client, message, args) => {
         embed.description += "\`\`\`"
 
         embed.title = "☂ Command help"
-        return message.channel.send({ embed })
+        return message.channel.send({ embeds: [embed]});
     }
 
     if (args.length > 1) {
