@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
     description += ">   desc  ::  Sets a custom status/name\n"
     description += "\`\`\`"
 
-    const help = {
+    const set = {
             color: 6894771, 
             title: "☂ Command help",
             description : description,
@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
             footer: {
                 text: "Boo's with ❤︎ from Mia"
             }};
-    message.channel.send({ embeds: [help]});
+    message.channel.send({ embeds: [set]});
 
     } else if (ag1 && !ag2) {
         message.channel.send(`☂ No argument provided, you absolute cretin`)

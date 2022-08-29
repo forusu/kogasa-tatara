@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
                 color: 16720165, 
                 title: "☂ Command help",
                 description : description,
-                timestamp: Date.now(),
+                timestamp: new Date().toISOString(),
                 footer: {
                     text: "Boo's with ❤︎ from Mia"
                 }};
