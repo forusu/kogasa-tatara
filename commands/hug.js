@@ -11,9 +11,14 @@ exports.run = (client, message, args) => {
         message.channel.send("☂ You can only hug one!")
         message.react('❌')
     }
+    function hugyouself(){
+
+        message.channel.send(`☂ ${author} hugged themselves, wholesome!`)
+    }
 
     !mention ? toHug()
-    : mention && args[1] ? hugOne() 
+    : mention && args[1] ? hugOne()
+    : mention && author ? hugyouself() 
     : message.channel.send(`☂ ${author} hugged ${mention} cuteee!`)
 
 }
