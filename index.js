@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
-const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, userMention } = require('discord.js');
 const client = new Client({
   intents: [
       GatewayIntentBits.Guilds,
@@ -15,7 +15,6 @@ client.logger = require("./modules/Logger");
 require("./modules/functions.js")(client);
 const talkedRecently = new Set();
 client.config = config;
-
   //On ready event handler, does stuff on the ready event!!!!!!
   client.on("ready", () => {
 
