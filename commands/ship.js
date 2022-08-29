@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
         color: 6894771,
         title: "",
         description: "",
-        timestamp: Date.now(),
+        timestamp: new Date().toISOString(),
         footer: {
             text: "Boo's with ❤︎ from Mia"
         }
@@ -40,9 +40,9 @@ exports.run = async (client, message, args) => {
 
     const percent = Math.round(Math.random() * 101);
     const matchEmbedOverrides = computeMatchEmbedOverrides(percent)
-    
+    console.log(typeof(embed))
     // spread copies params of embed object in new object, then copies match... into the object, overriding any parameters with the same name
-    return message.channel.send({ embed: {...embed, ...matchEmbedOverrides} }) 
+    return message.channel.send({ embeds: {...embed, ...matchEmbedOverrides} });
 }
 
 const computeMatchEmbedOverrides = (percent) => {
