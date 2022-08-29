@@ -24,7 +24,7 @@ module.exports = (client, message) => {
     if (message.content.indexOf(client.config.prefix) === 0) {
               // command cooldown
               if (talkedRecently.has(message.author.id) && (message.client.config.miaID)) {
-                return message.channel.send("☂ Please wait a little! I can't keep up! " + MessageMentions.user);
+                return message.channel.send("☂ Please wait a little! I can't keep up!" + message.author.toString() );
               } else {
           
               talkedRecently.add(message.author.id);
