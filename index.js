@@ -38,7 +38,7 @@ client.config = config;
     });
 
     // talk events
-  client.on('message', message => {
+  client.on('messageCreate', message => {
     switch (message.content.toLowerCase()) {
       case "cirno": 
         message.channel.send("☂ gremlin..")
