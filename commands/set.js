@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
 
     message.channel.send({embed: {
             "color": 6894771, 
-            "title": "Command help",
+            "title": "☂ Command help",
             "description" : description,
             "timestamp": Date.now(),
             "footer": {
