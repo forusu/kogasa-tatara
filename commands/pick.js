@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
 
         description = "\`\`\`asciidoc\n";
         description += "Usage: \n"
-        description += "->pick + [arg1] + [arg2] + [arg3]\n\n"
+        description += `${client.config.prefix}pick + [arg1] + [arg2] + [arg3]\n\n`
         description += "> description :: Picks between 2/3 choices\n"
         description += "\`\`\`"
 

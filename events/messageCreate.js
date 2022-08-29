@@ -16,7 +16,7 @@ module.exports = (client, message) => {
     const cmd = client.commands.get(command);
     // If that command doesn't exist, silently exit and do nothing
     if (!cmd) {
-        return message.channel.send(`☂ This command does not exist, please refer to ->help for a concise list!`)
+        return message.channel.send(`☂ This command does not exist, please refer to ${client.config.prefix}help for a concise list!`)
     };
 
 

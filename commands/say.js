@@ -7,12 +7,12 @@ exports.run = (client, message, args) => {
 
         let description = "\`\`\`asciidoc\n";
         description += "Usage: \n"
-        description += "->say + [text]\n\n"
+        description += `${client.config.prefix}say + [text]\n\n`
         description += "> description :: Says something in chat\n"
         description += "\`\`\`"
     
         const embed = {
-                color: 16720165, 
+                color: 6894771, 
                 title: "☂ Command help",
                 description : description,
                 timestamp: new Date().toISOString(),

@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
     if (!user) {
         embed.description = "\`\`\`asciidoc\n";
         embed.description += "Usage: \n"
-        embed.description += "->ship + [mention] \n\n"
+        embed.description += `${client.config.prefix}ship + [mention] \n\n`
         embed.description += "> description :: Ships users\n"
         embed.description += "\`\`\`"
 

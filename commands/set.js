@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
 
     let description = "\`\`\`asciidoc\n";
     description += "Usage: \n"
-    description += "->set + [cmd] + [arg] \n\n"
+    description += `${client.config.prefix}set + [cmd] + [arg] \n\n`
     description += "> status  ::  Sets a custom status\n"
     description += "> avatar  ::  Sets a custom avatar\n"
     description += ">   name  ::  Sets a custom username \n\n"
