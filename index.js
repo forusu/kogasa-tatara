@@ -22,10 +22,10 @@ client.config = config;
 
     console.log("☂ initialisation complete!")
 
-    if (client.guilds.size < 2) {
-      console.log(`☂ Ready to spread terror and fear on ${client.users.cache.size} members of a single server!`);
+    if (client.guilds.cache.size < 2) {
+      console.log(`☂ Ready to spread terror and fear on ${client.guilds.cache.map(guild => guild.memberCount)} members of a single server!`);
     } else {
-      console.log(`☂ Ready to spread terror and fear on ${client.users.cache.size} members from ${client.guilds.cache.size} servers!`);  
+      console.log(`☂ Ready to spread terror and fear on ${client.guilds.cache.map(guild => guild.memberCount)} members from ${client.guilds.cache.size} servers!`);  
     }
 
     client.user.setStatus("dnd");
