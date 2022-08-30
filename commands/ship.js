@@ -40,9 +40,8 @@ exports.run = async (client, message, args) => {
 
     const percent = Math.round(Math.random() * 101);
     const matchEmbedOverrides = computeMatchEmbedOverrides(percent)
-    console.log(typeof(embed))
     // spread copies params of embed object in new object, then copies match... into the object, overriding any parameters with the same name
-    return message.channel.send({ embeds: {...embed, ...matchEmbedOverrides} });
+    return message.channel.send({ embeds: [{...embed, ...matchEmbedOverrides}] });
 }
 
 const computeMatchEmbedOverrides = (percent) => {
