@@ -1,21 +1,31 @@
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
-const client = new Discord.Client();
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+  intents: [
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.GuildVoiceStates,
+      GatewayIntentBits.MessageContent
+  ]
+});
 const config = require("./config.js");
 client.logger = require("./modules/Logger");
 require("./modules/functions.js")(client);
+const talkedRecently = new Set();
 client.config = config;
-
-
   //On ready event handler, does stuff on the ready event!!!!!!
   client.on("ready", () => {
+
+
+
     console.log("☂ initialisation complete!")
 
     if (client.guilds.size < 2) {
-      console.log(`☂ Ready to spread terror and fear on ${client.users.size} members of a single server!`);
+      console.log(`☂ Ready to spread terror and fear on ${client.users.cache.size} members of a single server!`);
     } else {
-      console.log(`☂ Ready to spread terror and fear on ${client.users.size} members from ${client.guilds.size} servers!`);  
+      console.log(`☂ Ready to spread terror and fear on ${client.users.cache.size} members from ${client.guilds.cache.size} servers!`);  
     }
 
     client.user.setStatus("dnd");
@@ -27,7 +37,7 @@ client.config = config;
     });
 
     // talk events
-  client.on('message', message => {
+  client.on('messageCreate', message => {
     switch (message.content.toLowerCase()) {
       case "cirno": 
         message.channel.send("☂ gremlin..")

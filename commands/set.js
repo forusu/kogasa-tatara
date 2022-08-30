@@ -8,21 +8,22 @@ exports.run = async (client, message, args) => {
 
     let description = "\`\`\`asciidoc\n";
     description += "Usage: \n"
-    description += "->set + [cmd] + [arg] \n\n"
+    description += `${client.config.prefix}set + [cmd] + [arg] \n\n`
     description += "> status  ::  Sets a custom status\n"
     description += "> avatar  ::  Sets a custom avatar\n"
     description += ">   name  ::  Sets a custom username \n\n"
     description += ">   desc  ::  Sets a custom status/name\n"
     description += "\`\`\`"
 
-    message.channel.send({embed: {
-            "color": 6894771, 
-            "title": "☂ Command help",
-            "description" : description,
-            "timestamp": Date.now(),
-            "footer": {
+    const set = {
+            color: 6894771, 
+            title: "☂ Command help",
+            description : description,
+            timestamp: new Date().toISOString(),
+            footer: {
                 text: "Boo's with ❤︎ from Mia"
-            }}});
+            }};
+    message.channel.send({ embeds: [set]});
 
     } else if (ag1 && !ag2) {
         message.channel.send(`☂ No argument provided, you absolute cretin`)

@@ -7,18 +7,20 @@ exports.run = (client, message, args) => {
 
         let description = "\`\`\`asciidoc\n";
         description += "Usage: \n"
-        description += "->say + [text]\n\n"
+        description += `${client.config.prefix}say + [text]\n\n`
         description += "> description :: Says something in chat\n"
         description += "\`\`\`"
     
-        message.channel.send({embed: {
-                "color": 16720165, 
-                "title": "☂ Command help",
-                "description" : description,
-                "timestamp": Date.now(),
-                "footer": {
+        const embed = {
+                color: 6894771, 
+                title: "☂ Command help",
+                description : description,
+                timestamp: new Date().toISOString(),
+                footer: {
                     text: "Boo's with ❤︎ from Mia"
-                }}});
+                }};
+        message.channel.send({ embeds: [embed]});
+
     } else {
         message.channel.send(`☂ ${say}`)
         console.log(`${say}`)

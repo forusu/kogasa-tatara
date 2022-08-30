@@ -14,7 +14,7 @@ exports.run = (client, message, args, user) => {
     const mention = message.mentions.users.first();
 
     if (!mention) {
-        imageurl = message.author.avatarURL.slice(0, message.author.avatarURL.indexOf('?')) +"?size=256"
+        imageurl = message.author.avatarURL()
         userTag = message.author.tag
         uname = message.author.username
         userId = message.author.id
@@ -28,7 +28,7 @@ exports.run = (client, message, args, user) => {
 
     } else if (mention) {
 
-        imageurl = mention.avatarURL.slice(0, mention.avatarURL.indexOf('?')) + "?size=256"
+        imageurl = mention.avatarURL().slice(0, mention.avatarURL.indexOf('?')) + "?size=256"
         uname = mention.username
         userTag = mention.tag
         userId = mention.id
@@ -37,17 +37,17 @@ exports.run = (client, message, args, user) => {
 
     }
 
-    message.channel.send({embed: {
-        "color": 6894771, 
+    const embed = {
+        color: 6894771, 
         // "title": "☂ Your user info!",
-        "author": {
+        author: {
             name: userTag,
             icon_url: imageurl
         },
-        "thumbnail": {
+        thumbnail: {
             url: imageurl,
         },
-        "fields": [{
+        fields: [{
             name: 'username',
 			value: uname,
         },
@@ -64,12 +64,12 @@ exports.run = (client, message, args, user) => {
             value: userJoinDate,
         }
         ],
-        "timestamp": Date.now(),
-        "footer": {
+        timestamp: new Date().toISOString(),
+        footer: {
             text: "Boo's with ❤︎ from Mia"
-    }}});
-    
+    }};
     message.react('☂')
+    return message.channel.send({ embeds: [embed]});
 
 }
 

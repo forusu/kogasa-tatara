@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
 
         description = "\`\`\`asciidoc\n";
         description += "Usage: \n"
-        description += "->pick + [arg1] + [arg2] + [arg3]\n\n"
+        description += `${client.config.prefix}pick + [arg1] + [arg2] + [arg3]\n\n`
         description += "> description :: Picks between 2/3 choices\n"
         description += "\`\`\`"
 
@@ -49,13 +49,14 @@ exports.run = (client, message, args) => {
 
     }
 
-    message.channel.send({embed: {
-        "color": 6894771, 
-        "title": title,
-        "description" : description,
-        "timestamp": Date.now(),
-        "footer": { text: "Boo's with ❤︎ from Mia"}  
-    }}); 
+    const embed = {
+        color: 6894771, 
+        title: title,
+        description : description,
+        timestamp: new Date().toISOString(),
+        footer: { text: "Boo's with ❤︎ from Mia"}  
+    };
+    message.channel.send({ embeds: [embed]});
 
 }
 

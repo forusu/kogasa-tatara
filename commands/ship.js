@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
         color: 6894771,
         title: "",
         description: "",
-        timestamp: Date.now(),
+        timestamp: new Date().toISOString(),
         footer: {
             text: "Boo's with ❤︎ from Mia"
         }
@@ -14,12 +14,12 @@ exports.run = async (client, message, args) => {
     if (!user) {
         embed.description = "\`\`\`asciidoc\n";
         embed.description += "Usage: \n"
-        embed.description += "->ship + [mention] \n\n"
+        embed.description += `${client.config.prefix}ship + [mention] \n\n`
         embed.description += "> description :: Ships users\n"
         embed.description += "\`\`\`"
 
         embed.title = "☂ Command help"
-        return message.channel.send({ embed })
+        return message.channel.send({ embeds: [embed]});
     }
 
     if (args.length > 1) {
@@ -40,9 +40,8 @@ exports.run = async (client, message, args) => {
 
     const percent = Math.round(Math.random() * 101);
     const matchEmbedOverrides = computeMatchEmbedOverrides(percent)
-    
     // spread copies params of embed object in new object, then copies match... into the object, overriding any parameters with the same name
-    return message.channel.send({ embed: {...embed, ...matchEmbedOverrides} }) 
+    return message.channel.send({ embeds: [{...embed, ...matchEmbedOverrides}] });
 }
 
 const computeMatchEmbedOverrides = (percent) => {

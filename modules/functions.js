@@ -73,7 +73,69 @@ module.exports = (client) => {
         return false;
       }
     };
-    
+  
+  
+    /*
+    MESSAGE CLEAN FUNCTION
+    "Clean" removes @everyone pings, as well as tokens, and makes code blocks
+    escaped so they're shown more easily. As a bonus it resolves promises
+    and stringifies objects!
+    This is mostly only used by the Eval and Exec commands.
+    */
+    client.clean = async (client, text) => {
+      if (text && text.constructor.name == "Promise")
+        text = await text;
+      if (typeof text !== "string")
+        text = require("util").inspect(text, {depth: 1});
+  
+      text = text
+        .replace(/`/g, "`" + String.fromCharCode(8203))
+        .replace(/@/g, "@" + String.fromCharCode(8203))
+        .replace(client.token, "☂ You fucking moron, absolute fucking imbecile, dumb idiot, utter cretin, you just revealed your token!");
+  
+      return text;
+    };
+  
+    client.loadCommand = (commandName) => {
+      try {
+        client.logger.log(`${commandName} loaded`);
+        const props = require(`../commands/${commandName}`);
+        if (props.init) { 
+          props.init(client);
+        }
+        client.commands.set(props.help.name, props);
+        props.conf.aliases.forEach(alias => {
+          client.aliases.set(alias, props.help.name);
+        });
+        return false;
+      } catch (e) {
+        return `Unable to load command ${commandName}: ${e}`;
+      }
+    };
+  
+    client.unloadCommand = async (commandName) => {
+        let command;
+        if (client.commands.has(commandName)) {
+          command = client.commands.cache.get(commandName);
+        } else if (client.aliases.has(commandName)) {
+          command = client.commands.cache.get(client.aliases.get(commandName));
+        }
+        if (!command) return `The command \`${commandName}\` doesn"t seem to exist, Try again!`;
+        
+        if (command.shutdown) {
+          await command.shutdown(client);
+        }
+        const mod = require.cache[require.resolve(`../commands/${command.help.name}`)];
+        delete require.cache[require.resolve(`../commands/${command.help.name}.js`)];
+        for (let i = 0; i < mod.parent.children.length; i++) {
+          if (mod.parent.children[i] === mod) {
+            mod.parent.children.splice(i, 1);
+            break;
+          }
+        }
+        return false;
+      };
+  
     /* MISCELANEOUS NON-CRITICAL FUNCTIONS */
     
     // EXTENDING NATIVE TYPES IS BAD PRACTICE. Why? Because if JavaScript adds this
