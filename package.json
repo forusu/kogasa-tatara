@@ -5,7 +5,6 @@
   "main": "index.js",
   "dependencies": {
     "chalk": "^4.0.0",
-    "better-sqlite3": "^7.0.1",
     "discord.js": "^14.3.0",
     "enmap": "^5.2.4",
     "moment": "^2.25.3",
