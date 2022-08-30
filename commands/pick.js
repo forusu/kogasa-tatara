@@ -34,10 +34,10 @@ exports.run = (client, message, args) => {
         title = "☂ Command help"
     }
 
-    if (args.length > 3) {
+    if (args.length > 3 || args.length < 2) {
 
         message.react('❌')
-        message.channel.send("☂ I can only pick between 3 things NotLikeThis")
+        message.channel.send("☂ I can only pick between 2 or 3 things NotLikeThis")
 
         return
     }
