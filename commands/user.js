@@ -28,7 +28,7 @@ exports.run = (client, message, args, user) => {
 
     } else if (mention) {
 
-        imageurl = message.mention.avatarURL()
+        imageurl = mention.avatarURL()
         uname = mention.username
         userTag = mention.tag
         userId = mention.id
