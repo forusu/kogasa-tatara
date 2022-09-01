@@ -8,7 +8,7 @@ exports.run = (client, message, args, level) => { // eslint-disable-line no-unus
     const dur = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
     const mem = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)
    // const memfr = 
-    const usr = client.guilds.cache.map(guild => guild.memberCount)
+    const usr = client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)
     const ser = client.guilds.cache.size
     const chn = client.channels.cache.size
     const ver = version

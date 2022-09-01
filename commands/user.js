@@ -23,7 +23,6 @@ exports.run = (client, message, args, user) => {
         userCreationDate = moment(message.author.createdTimestamp).format("DD/MM/YYYY HH:mm:ss")
 
     } else if (mention && args[1]) {
-        console.log(mention)
         message.react('❌')
         return message.channel.send("☂ You can only request user info from one user!")
 

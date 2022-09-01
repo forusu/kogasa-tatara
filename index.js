@@ -23,9 +23,9 @@ client.config = config;
     console.log("☂ initialisation complete!")
 
     if (client.guilds.cache.size < 2) {
-      console.log(`☂ Ready to spread terror and fear on ${client.guilds.cache.map(guild => guild.memberCount)} members of a single server!`);
+      console.log(`☂ Ready to spread terror and fear on ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} members of a single server!`);
     } else {
-      console.log(`☂ Ready to spread terror and fear on ${client.guilds.cache.map(guild => guild.memberCount)} members from ${client.guilds.cache.size} servers!`);  
+      console.log(`☂ Ready to spread terror and fear on ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} members from ${client.guilds.cache.size} servers!`);
     }
 
     client.user.setStatus("dnd");
