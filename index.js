@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits,  ActivityType } = require('discord.js');
 const client = new Client({
   intents: [
       GatewayIntentBits.Guilds,
@@ -29,13 +29,7 @@ client.config = config;
     }
 
     client.user.setStatus("dnd");
-    client.user.setPresence({
-      game: {
-          name: "with humans!",
-          type: 'PLAYING'
-      }
-    });
-
+    client.user.setActivity('with humans!', { type: ActivityType.Playing });
     // talk events
   client.on('messageCreate', message => {
     switch (message.content.toLowerCase()) {

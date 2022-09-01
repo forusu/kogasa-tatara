@@ -1,3 +1,4 @@
+const { ActivityType } = require("discord.js");
 exports.run = async (client, message, args) => {
 
     let ag1 = args[0];
@@ -31,11 +32,7 @@ exports.run = async (client, message, args) => {
     } else {
         switch (ag1) {
             case 'status':
-                client.user.setPresence({
-                    game: {
-                        name: ag2,
-                    }
-                })
+                client.user.setActivity(ag2, { type: ActivityType.Playing });
                 message.channel.send(`☂ Status is now set to **${ag2}**`)
                 message.react('☂')
                 break;
