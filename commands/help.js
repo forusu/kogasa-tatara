@@ -4,6 +4,7 @@ exports.run = (client, message) => {
     description += "Base commands: \n";
     description += `>   ${client.config.prefix}ping :: Calculates response time \n`;
     description += `>  ${client.config.prefix}status :: Shows basic bot stats\n`;
+    description += `>  ${client.config.prefix}stus :: ok I type stus\n`;
     description += `>  ${client.config.prefix}avatar :: Gets you a user's avatar!\n`;
     description += `>    ${client.config.prefix}user :: Outputs the user info!\n`;
     description += `>    ${client.config.prefix}help :: Outputs a list of commands\n`;
