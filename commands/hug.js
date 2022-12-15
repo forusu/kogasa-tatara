@@ -17,8 +17,8 @@ exports.run = (client, message, args) => {
     }
 
     !mention ? toHug()
+    : mention == author ? hugyouself()
     : mention && args[1] ? hugOne()
-    : mention && author ? hugyouself() 
     : message.channel.send(`☂ ${author} hugged ${mention} cuteee!`)
 
 }
