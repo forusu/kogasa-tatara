@@ -1,13 +1,20 @@
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
-const { Client, GatewayIntentBits,  ActivityType } = require('discord.js');
+const { Client, GatewayIntentBits,  ActivityType, Partials } = require('discord.js');
 const client = new Client({
   intents: [
       GatewayIntentBits.Guilds,
       GatewayIntentBits.GuildMessages,
       GatewayIntentBits.GuildVoiceStates,
-      GatewayIntentBits.MessageContent
+      GatewayIntentBits.MessageContent,
+      GatewayIntentBits.DirectMessages,
+      GatewayIntentBits.DirectMessageReactions,
+      GatewayIntentBits.DirectMessageTyping
+  ],
+  partials: [
+    Partials.Channel,
+    Partials.Message
   ]
 });
 const config = require("./config.js");
