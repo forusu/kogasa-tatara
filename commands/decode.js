@@ -10,6 +10,8 @@ exports.run = (client, message, args) => {
         return
     }
 
+    // fixing the commit
+
     let strInput = input
     let length = strInput.length
     let numInput = []

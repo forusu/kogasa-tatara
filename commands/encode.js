@@ -11,6 +11,7 @@ exports.run = (client, message, args) => {
         return
     }
 
+    // fixing the commit
 
     var obj = {
         table: []
