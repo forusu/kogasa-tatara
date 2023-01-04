@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
             // color: 6894771, 
             color: 000000, 
             title: "📻 TRANSMISSION 📻",
-            description : `\`\`\`ACHTUNG! ACHTUNG!\n\n${trm}\n\n${trm}\n\n${trm}\n\n${trm}\n\n${trm}\`\`\``.replaceAll(',', ' '),
+            description : `\`\`\`ACHTUNG ACHTUNG\n\n${trm}\n\nTRENNUNG\n\n${trm}\n\nTRENNUNG\n\n${trm}\n\nTRENNUNG\n\n${trm}\n\nTRENNUNG\n\n${trm}\n\nENDE\`\`\``.replaceAll(',', ' '),
             timestamp: new Date().toISOString(),
             footer: {
                 text: "Boo's with ❤︎ from Mia"
