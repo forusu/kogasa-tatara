@@ -15,8 +15,9 @@ exports.run = async (client, message, args) => {
         }
 
         const embed = {
-            color: 6894771, 
-            title: "☂ TRANSMISSION",
+            // color: 6894771, 
+            color: 00000, 
+            title: "📻 TRANSMISSION 📻",
             description : `\`\`\`ACHTUNG! ACHTUNG!\n\n${trm}\n\n${trm}\n\n${trm}\n\n${trm}\n\n${trm}\`\`\``.replaceAll(',', ' '),
             timestamp: new Date().toISOString(),
             footer: {

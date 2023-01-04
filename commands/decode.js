@@ -42,6 +42,7 @@ exports.run = (client, message, args) => {
         const decodedText = Array.from(decode());
         let cipherText = []
         decodedText.forEach(element => cipherText.push(String.fromCharCode(element)))
+        
     
         const embed = {
             color: 6894771, 

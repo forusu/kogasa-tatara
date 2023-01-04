@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
 
-    let input = args.join(" ").replaceAll(' ', '');
+    let input = args.join(" ");
     let cipherLength = input.length
 
     if (args.length == 0) {
