@@ -23,7 +23,6 @@ exports.run = (client, message, args) => {
    
 };
 message.channel.send({ embeds: [embed]});
-
 }
 
 exports.conf = {
